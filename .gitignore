@@ -17,6 +17,7 @@ eggs/
 results
 plots/
 features/
+CVPR2020_results/
 archive/
 affinity/
 jupyter_notebooks/archived/
