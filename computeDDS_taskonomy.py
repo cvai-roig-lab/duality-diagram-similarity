@@ -66,7 +66,7 @@ def get_features(taskonomy_feats_path,num_images):
 
 def main():
     parser = argparse.ArgumentParser(description='Computing Duality Diagram Similarity between Taskonomy Tasks')
-    parser.add_argument('-d','--dataset', help='image dataset to use for computing DDS', default = "nyuv2", type=str)
+    parser.add_argument('-d','--dataset', help='image dataset to use for computing DDS', default = "taskonomy_5000", type=str)
     parser.add_argument('-fd','--feature_dir', help='path to saved features from taskonomy models', default = "./features/taskonomy_activations/", type=str)
     parser.add_argument('-sd','--save_dir', help='path to save the DDS results', default = "./results/DDScomparison_taskonomy", type=str)
     parser.add_argument('-n','--num_images', help='number of images to compute DDS', default = 200, type=int)
