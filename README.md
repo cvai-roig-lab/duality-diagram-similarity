@@ -2,14 +2,14 @@
 Kshitij Dwivedi, Jiahui Huang, Radoslaw Martin Cichy, Gemma Roig <br/>
 ECCV 2020
 
-Here we provide the code to replicate our results on Taskonomy and Pascal VOC transfer benchmark. 
+Here we provide the code to replicate our results on Taskonomy and Pascal VOC transfer benchmark.
 
 ## Setup
 * Code uses standard python libraries numpy, scipy, scikit-learn so it should run without installing additional libraries
 * Download saved features of Taskonomy and Pascal VOC models from this <a href="https://www.dropbox.com/sh/iqg7p97vxmqhkcz/AABwcbMYSZKb2euEIqFMWaLma?dl=0">link </a> , and save the features in ./features directory.
 
-## Taskonomy 
-* Run ```python computeDDS_taskonomy.py``` to compute DDS between Taskonomy models
+## Taskonomy
+* Run ```python computeDDS_pascal.py``` to compute DDS between Taskonomy models
 * Compare the DDS with transfer learning performance by running the jupyter notebook : DDS_vs_transferlearning(Taskonomy).ipynb
 
 ## Pascal VOC
