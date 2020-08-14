@@ -1,6 +1,6 @@
-<a href="https://arxiv.org/abs/2008.02107"> Duality Diagram Similarity: a generic framework for initialization selection in task transfer learning</a># 
+<a href="https://arxiv.org/abs/2008.02107"> Duality Diagram Similarity: a generic framework for initialization selection in task transfer learning</a>
+Kshitij Dwivedi, Jiahui Huang, Radoslaw Martin Cichy, Gemma Roig in ECCV 2020
 
-<br/><br/>
 Here we provide the code to replicate our results on Taskonomy and Pascal VOC transfer benchmark. 
 
 ## Setup
