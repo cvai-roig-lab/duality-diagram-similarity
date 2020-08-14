@@ -21,7 +21,7 @@ from utils import  get_similarity_from_rdms,get_similarity
 
 
 
-def get_features(taskonomy_feats_path,num_images):
+def get_features(features_filename,num_images):
     """
 
     Parameters
@@ -37,51 +37,36 @@ def get_features(taskonomy_feats_path,num_images):
         dictionary containg features of taskonomy models.
 
     """
-    taskonomy_tasks = ['autoencoder','class_1000', 'class_places', 'colorization','curvature',\
-                       'denoise', 'edge2d', 'edge3d', \
-                       'inpainting_whole','keypoint2d', 'keypoint3d', \
-                       'reshade', 'rgb2depth', 'rgb2mist', 'rgb2sfnorm','room_layout' ,\
-                       'segment25d', 'segment2d', 'segmentsemantic', 'vanishing_point']
-    print(len(taskonomy_tasks))
-    taskonomy_list={}
-    print(taskonomy_feats_path)
-    for task in taskonomy_tasks:
-        taskonomy_list[task] = glob.glob(taskonomy_feats_path+"/*"+  task +"_encoder_output.npy")
-        taskonomy_list[task].sort()
-        taskonomy_list[task] = taskonomy_list[task][:num_images]
-        print(task, len(taskonomy_list[task]))
-
-    #Loading data
-    #num_images = len(taskonomy_list[task])
-    print(np.load(taskonomy_list[task][0]).shape)
-    a=np.load(taskonomy_list[task][0]).ravel()
-    print(a.shape)
-    num_features =a.shape[0]
-    taskonomy_data = {}
-    for task in taskonomy_tasks:
-        taskonomy_data[task] = np.zeros((num_images,num_features))
-        for i,taskonomy_file in enumerate(taskonomy_list[task]):
-            taskonomy_data[task][i,:]  = np.load(taskonomy_file).ravel()
-    return taskonomy_data
+    task_list = list_of_tasks.split(' ')
+    if os.path.isfile(features_filename):
+        start = time.time()
+        taskonomy_data = np.load(features_filename,allow_pickle=True)
+        end = time.time()
+        print("whole file loading time is ", end - start)
+        taskonomy_data_full = taskonomy_data.item()
+        taskonomy_data_few_images = {}
+        for index,task in enumerate(task_list): 
+            taskonomy_data_few_images[task] = taskonomy_data_full[task][:num_images,:]
+        return taskonomy_data_few_images
 
 def main():
     parser = argparse.ArgumentParser(description='Computing Duality Diagram Similarity between Taskonomy Tasks')
     parser.add_argument('-d','--dataset', help='image dataset to use for computing DDS', default = "pascal_5000", type=str)
-    parser.add_argument('-fd','--feature_dir', help='path to saved features from taskonomy models', default = "./features/taskonomy_activations/", type=str)
+    parser.add_argument('-fd','--feature_dir', help='path to saved features from taskonomy models', default = "./features/", type=str)
     parser.add_argument('-sd','--save_dir', help='path to save the DDS results', default = "./results/DDScomparison_taskonomy", type=str)
     parser.add_argument('-n','--num_images', help='number of images to compute DDS', default = 200, type=int)
     args = vars(parser.parse_args())
 
     num_images = args['num_images']
     dataset = args['dataset']
-    taskonomy_feats_path = os.path.join(args['feature_dir'],dataset)
+    features_filename = os.path.join(args['feature_dir'],"taskonomy_pascal_feats_" + args['dataset'] + ".npy")
     save_dir = os.path.join(args['save_dir'],dataset)
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
     
     task_list = list_of_tasks.split(' ')
     
-    taskonomy_data = get_features(taskonomy_feats_path,num_images) # function that returns features from taskonomy models for first #num_images 
+    taskonomy_data = get_features(features_filename,num_images) # function that returns features from taskonomy models for first #num_images 
     
     
     # setting up DDS using Q,D,f,g for kernels

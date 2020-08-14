@@ -6,30 +6,10 @@ Created on Mon Aug 10 19:45:42 2020
 """
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.metrics.pairwise import chi2_kernel,polynomial_kernel,sigmoid_kernel,laplacian_kernel,rbf_kernel
-import pandas as pd
-import matplotlib.pyplot as plt
-from scipy.stats import spearmanr,pearsonr
-import seaborn as sns
-import numpy as np
-import scipy
-import scipy.io as sio
-import os
-import glob
-from tqdm import tqdm
-import numpy as np
-import argparse
-import time
-import matplotlib
-
-from sklearn.covariance import EmpiricalCovariance, MinCovDet
-from sklearn.metrics.pairwise import chi2_kernel,polynomial_kernel,sigmoid_kernel,laplacian_kernel,rbf_kernel
-from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics.pairwise import laplacian_kernel
 from sklearn.metrics.pairwise import euclidean_distances
-from scipy.stats.stats import pearsonr,spearmanr
 from sklearn.preprocessing import StandardScaler
-from scipy import linalg,spatial
-from sklearn.covariance import GraphicalLassoCV, LedoitWolf,OAS, ShrunkCovariance
+
 
 def get_similarity_from_rdms(x,y,dist,feature_norm,debiased=True,centered=True):
     """
