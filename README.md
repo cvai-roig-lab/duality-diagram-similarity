@@ -39,11 +39,11 @@ Here we provide the code to replicate our results on Taskonomy and Pascal VOC tr
 * Download saved features of Taskonomy and Pascal VOC models from this <a href="https://www.dropbox.com/sh/iqg7p97vxmqhkcz/AABwcbMYSZKb2euEIqFMWaLma?dl=0">link </a> , and save the features in ./features directory.
 
 ## Taskonomy
-* Run ```python computeDDS_pascal.py``` to compute DDS between Taskonomy models
+* Run ```python computeDDS_taskonomy.py``` to compute DDS between Taskonomy models
 * Compare the DDS with transfer learning performance by running the jupyter notebook : DDS_vs_transferlearning(Taskonomy).ipynb
 
 ## Pascal VOC
-* Run ```python computeDDS_taskonomy.py``` to compute DDS between Taskonomy models and Pascal VOC model
+* Run ```python computeDDS_pascal.py``` to compute DDS between Taskonomy models and Pascal VOC model
 * Compare the DDS with transfer learning performance by running the jupyter notebook : DDS_vs_transferlearning(Pascal).ipynb
 
 
