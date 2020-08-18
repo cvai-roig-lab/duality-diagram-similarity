@@ -42,7 +42,7 @@ def get_features(taskonomy_feats_path,pascal_feats_path,features_filename):
         end = time.time()
         print("whole file loading time is ", end - start)
         return taskonomy_data.item()
-    
+
     taskonomy_tasks = ['autoencoder','class_1000', 'class_places', 'colorization','curvature',\
                        'denoise', 'edge2d', 'edge3d', \
                        'inpainting_whole','keypoint2d', 'keypoint3d', \
@@ -87,7 +87,7 @@ def get_features(taskonomy_feats_path,pascal_feats_path,features_filename):
 
 def main():
     parser = argparse.ArgumentParser(description='Computing Duality Diagram Similarity between Taskonomy Tasks')
-    parser.add_argument('-d','--dataset', help='image dataset to use for computing DDS', default = "taskonomy_5000", type=str)
+    parser.add_argument('-d','--dataset', help='image dataset to use for computing DDS: options are [pascal_5000, taskonomy_5000, nyuv2]', default = "pascal_5000", type=str)
     parser.add_argument('-fd','--feature_dir', help='path to saved features root directory', default = "./features/", type=str)
     parser.add_argument('-fdt','--feature_dir_taskonomy', help='path to saved features from taskonomy models', default = "./features/taskonomy_activations/", type=str)
     parser.add_argument('-fdp','--feature_dir_pascal', help='path to saved features from pascal models', default = "./features/pascal_activations/", type=str)
@@ -95,7 +95,7 @@ def main():
     parser.add_argument('-n','--num_images', help='number of images to compute DDS', default = 200, type=int)
     parser.add_argument('-i','--num_iters', help='number of iterations for bootstrap', default = 100, type=int)
     args = vars(parser.parse_args())
-   
+
     num_images = args['num_images']
     dataset = args['dataset']
     taskonomy_feats_path = os.path.join(args['feature_dir_taskonomy'],dataset)
@@ -108,17 +108,17 @@ def main():
     save_dir = os.path.join(args['save_dir'],dataset)
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
-    
+
     task_list = list_of_tasks.split(' ')
     print(task_list)
-    
+
     taskonomy_data = get_features(taskonomy_feats_path,pascal_feats_path,features_filename)
-    
-    
+
+
     # setting up DDS using Q,D,f,g for kernels
     kernel_type = ['rbf','lap','linear'] # possible kernels (f in DDS)
     feature_norm_type = ['znorm'] # possible normalizations (Q,D in DDS)
-    
+
     save_path = os.path.join(save_dir,'kernels.npy')
     affinity_ablation = {}
     for kernel in (kernel_type):
@@ -143,7 +143,7 @@ def main():
             affinity_ablation[kernel][feature_norm] = affinity_matrix
 
     np.save(save_path,affinity_ablation)
-    
+
     # setting up DDS using Q,D,f,g for distance functions
     save_path = os.path.join(save_dir,'rdms.npy')
     dist_type = ['pearson', 'euclidean', 'cosine']
@@ -170,7 +170,7 @@ def main():
             affinity_ablation[dist][feature_norm] = affinity_matrix
 
     np.save(save_path,affinity_ablation)
-    
+
 
 if __name__ == "__main__":
     main()
