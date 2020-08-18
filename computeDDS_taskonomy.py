@@ -28,7 +28,7 @@ def get_features(features_filename,num_images):
     ----------
     taskonomy_feats_path : TYPE
         DESCRIPTION.
-    num_images : int 
+    num_images : int
         number of images to compute DDS
 
     Returns
@@ -45,13 +45,13 @@ def get_features(features_filename,num_images):
         print("whole file loading time is ", end - start)
         taskonomy_data_full = taskonomy_data.item()
         taskonomy_data_few_images = {}
-        for index,task in enumerate(task_list): 
+        for index,task in enumerate(task_list):
             taskonomy_data_few_images[task] = taskonomy_data_full[task][:num_images,:]
         return taskonomy_data_few_images
 
 def main():
     parser = argparse.ArgumentParser(description='Computing Duality Diagram Similarity between Taskonomy Tasks')
-    parser.add_argument('-d','--dataset', help='image dataset to use for computing DDS', default = "pascal_5000", type=str)
+    parser.add_argument('-d','--dataset', help='image dataset to use for computing DDS: options are [pascal_5000, taskonomy_5000, nyuv2], default = "taskonomy_5000", type=str)
     parser.add_argument('-fd','--feature_dir', help='path to saved features from taskonomy models', default = "./features/", type=str)
     parser.add_argument('-sd','--save_dir', help='path to save the DDS results', default = "./results/DDScomparison_taskonomy", type=str)
     parser.add_argument('-n','--num_images', help='number of images to compute DDS', default = 200, type=int)
@@ -63,17 +63,17 @@ def main():
     save_dir = os.path.join(args['save_dir'],dataset)
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
-    
+
     task_list = list_of_tasks.split(' ')
-    
-    taskonomy_data = get_features(features_filename,num_images) # function that returns features from taskonomy models for first #num_images 
-    
-    
+
+    taskonomy_data = get_features(features_filename,num_images) # function that returns features from taskonomy models for first #num_images
+
+
     # setting up DDS using Q,D,f,g for kernels
     kernel_type = ['rbf','lap','linear'] # possible kernels (f in DDS)
     feature_norm_type = ['None','centering','znorm','group_norm','instance_norm','layer_norm','batch_norm'] # possible normalizations (Q,D in DDS)
-    
-    
+
+
     save_path = os.path.join(save_dir,'kernels.npy')
     affinity_ablation = {}
     for kernel in (kernel_type):
@@ -123,4 +123,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
