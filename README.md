@@ -34,14 +34,14 @@ Here we provide the code to replicate our results on Taskonomy and Pascal VOC tr
 
 
 ## Setup
-* Code uses standard python libraries numpy, scipy, scikit-learn so it should run without installing additional libraries
+* Code uses standard python libraries numpy, scipy, scikit-learn, pandas so it should run without installing additional libraries
 * Download saved features of Taskonomy and Pascal VOC models from this <a href="https://www.dropbox.com/sh/iqg7p97vxmqhkcz/AABwcbMYSZKb2euEIqFMWaLma?dl=0">link </a> , and save the features in ./features directory.
 * Download taskonomy groundtruth transfer learning results for <a href="https://github.com/StanfordVL/taskonomy/blob/master/results/affinities/all_affinities.pkl">affinities</a> and <a href="https://github.com/StanfordVL/taskonomy/blob/master/results/winrates/wins_vs_pixels_16k.pkl">winrate</a> and save them in ./affinities folder
 
 ## Taskonomy
 * Run ```python computeDDS_taskonomy.py``` to compute DDS between Taskonomy models
 * Compare the DDS with transfer learning performance by running the jupyter notebook : DDS_vs_transferlearning(Taskonomy).ipynb
-* The results for affinities using Taskonomy images should be identical to Table below
+* The comparison results of DDS with transfer learning using Taskonomy images should be identical to Table below
 <div align="center">
   <img width="80%" alt="Duality Diagram Similarity" src="https://github.com/kshitijd20/dummy/blob/master/gifs/Taskonomy_result.png">
 </div>
@@ -49,7 +49,7 @@ Here we provide the code to replicate our results on Taskonomy and Pascal VOC tr
 ## Pascal VOC
 * Run ```python computeDDS_pascal.py``` to compute DDS between Taskonomy models and Pascal VOC model
 * Compare the DDS with transfer learning performance by running the jupyter notebook : DDS_vs_transferlearning(Pascal).ipynb
-* The results for affinities using Pascal images should be identical to Table below
+* The comparison results of DDS with transfer learning using Pascal images should be identical to Table below
 <div align="center">
   <img width="80%" alt="Duality Diagram Similarity" src="https://github.com/kshitijd20/dummy/blob/master/gifs/pascal_result.png">
 </div>
