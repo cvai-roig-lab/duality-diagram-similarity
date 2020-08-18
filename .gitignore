@@ -16,10 +16,6 @@ eggs/
 .eggs/
 results
 plots/
-features/pascal_activations
-features/taskonomy_activations
-features/taskonomy_pascal_feats_pascal_5000.npy
-features/taskonomy_pascal_feats_taskonomy_5000.npy
 CVPR2020_results/
 archive/
 affinity/
