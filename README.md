@@ -51,21 +51,15 @@ Here we provide the code to replicate our results on Taskonomy and Pascal VOC tr
 If you use our code please consider citing the paper below
 
 ```
-@article{DBLP:journals/corr/abs-2008-02107,
-  author    = {Kshitij Dwivedi and
+@inproceedings{dwivedi2020DDS,
+  title={Duality Diagram Similarity: a generic framework for initialization
+               selection in task transfer learning},
+  author={Kshitij Dwivedi and
                Jiahui Huang and
                Radoslaw Martin Cichy and
                Gemma Roig},
-  title     = {Duality Diagram Similarity: a generic framework for initialization
-               selection in task transfer learning},
-  journal   = {CoRR},
-  volume    = {abs/2008.02107},
-  year      = {2020},
-  url       = {https://arxiv.org/abs/2008.02107},
-  archivePrefix = {arXiv},
-  eprint    = {2008.02107},
-  timestamp = {Fri, 07 Aug 2020 15:07:21 +0200},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2008-02107.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
+  booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
+  year={2020}
 }
+
 ```
