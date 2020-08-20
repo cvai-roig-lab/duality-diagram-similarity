@@ -1,7 +1,9 @@
 <a href="https://arxiv.org/abs/2008.02107"> Duality Diagram Similarity: a generic framework for initialization selection in task transfer learning</a><br/>
 Kshitij Dwivedi, Jiahui Huang, Radoslaw Martin Cichy, Gemma Roig <br/>
 ECCV 2020<br/><br/>
-Here we provide the code to replicate our results on Taskonomy and Pascal VOC transfer benchmark.
+
+
+Here we provide the code to replicate our results on Taskonomy and Pascal VOC transfer benchmark. You can also find the implementation of our old method published in CVPR 2019 based on RSA in these links [paper](https://arxiv.org/abs/1904.11740), [code](https://github.com/kshitijd20/RSA-CVPR19-release)
 
 * To assess similarity between two tasks, we extract the features of the Deep Neural Networks(DNNs) trained on these tasks
 
