@@ -9,7 +9,7 @@ Here we provide the code to replicate our results on Taskonomy and Pascal VOC tr
 
 
 <div align="center">
-  <img width="80%" alt="Feature Extraction" src="https://https://github.com/cvai-repo/duality-diagram-similarity/tree/master/gifs/features.gif">
+  <img width="80%" alt="Feature Extraction" src="https://github.com/cvai-repo/duality-diagram-similarity/tree/master/gifs/features.gif">
 </div>
 
 
@@ -18,7 +18,7 @@ Here we provide the code to replicate our results on Taskonomy and Pascal VOC tr
 
 
 <div align="center">
-  <img width="80%" alt="Duality Diagram from extracted Features" src="https://https://github.com/cvai-repo/duality-diagram-similarity/tree/master/gifs/DD.gif">
+  <img width="80%" alt="Duality Diagram from extracted Features" src="https://github.com/cvai-repo/duality-diagram-similarity/tree/master/gifs/DD.gif">
 </div>
 
 
@@ -27,7 +27,7 @@ Here we provide the code to replicate our results on Taskonomy and Pascal VOC tr
 * We finally compare the Duality Diagrams of two tasks to assess their similarity.
 
 <div align="center">
-  <img width="80%" alt="Duality Diagram Similarity" src="https://https://github.com/cvai-repo/duality-diagram-similarity/tree/master/gifs/DDS.gif">
+  <img width="80%" alt="Duality Diagram Similarity" src="https://github.com/cvai-repo/duality-diagram-similarity/tree/master/gifs/DDS.gif">
 </div>
 
 
